@@ -1,0 +1,188 @@
+@use "../global";
+@use "../layout/footer";
+@use "../layout/container";
+@use "../layout/header";
+@use "../themes/dark-contact";
+@use "../utils/variables" as var; 
+@use "../utils/mixins" as mxn;
+
+body{
+  background: #F5F2F0;
+}
+.contact{
+  padding: 160px 0;
+  background-image: url(../../asset/images/contact.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+
+  h6{
+    color: #FFD2A4;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  h2{
+    max-width: 409px;
+    color: #FFF;
+     font-family: 'Roboto Condensed', sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 64px;
+    letter-spacing: -0.48px;
+    text-transform: uppercase;
+  }
+}
+.form{
+  padding: 128px 0 0 0;
+  width: 100%;
+  padding-bottom: 90px;
+
+  h4{
+    margin-bottom: 32px;
+    color: #1E1B1B;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.24px;
+    text-transform: uppercase;
+  }
+
+  &__wrapper{
+    display: flex;
+    gap: 128px;
+    width: 100%;
+
+    input{
+      padding: 20px;
+      display: block;
+      width: 100%;
+      margin-bottom: 12px;
+     ::placeholder{
+       color:#161722;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+     }
+    }
+    textarea{
+      width: 100%;
+      padding: 24px;
+      &::placeholder{
+       color:#161722;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px; 
+      }
+    }
+      button{
+        @include mxn.btn;
+        color: black;
+        margin-top: 12px;
+        width: 100%;
+      }
+    &__right{
+     p{
+      margin-bottom: 10px;
+      color: #1E1B1B;
+      opacity: .7;
+       font-family: 'Roboto Condensed', sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+     }
+    }
+  }
+  .right-icon{
+    display: inline-block;
+    i{
+      font-size: 25px;
+      margin-right: 32px;
+    }
+  }
+}
+
+.form__wrapper__left{
+  width: 50%;
+}
+
+.form__wrapper__right{
+  width: 50%;
+}
+
+.dark #contact{
+  background-color: black;
+}
+
+.dark .form h4{
+  color: white;
+}
+
+.dark .form input{
+  box-shadow: 0 0 10px 5px #FFD2A4;
+}
+
+.dark .form textarea{
+  box-shadow: 0 0 10px 5px #FFD2A4;
+}
+
+.dark .form__wrapper__right p{
+  color: white;
+}
+
+.dark #navbar.navbar-shrink{
+    box-shadow: 0 0 10px 5px #FFD2A4;
+}
+
+@media (max-width: 800px){
+  .form__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .form__wrapper__right h4{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 400px){
+  .form{
+    padding-top: 60px;
+    padding-bottom: 0;
+
+    &__wrapper{
+      gap: 60px;
+    }
+    p{
+      text-align: center;
+    }
+
+    input,
+    textarea{
+      width: 350px;
+      margin-left: -85px;
+    }
+  }
+  .form h4{
+    text-align: center;
+  }
+  .right-icon{
+    padding-bottom: 50px;
+  }
+  .contact h2{
+    font-size: 35px;
+  }
+
+}

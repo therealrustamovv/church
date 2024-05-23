@@ -1,0 +1,18 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+.dark main {
+    background-color: #0D0D0D;
+}
+
+.dark main * {
+    color: white;
+}
+
+.dark #navbar.navbar-shrink{
+    box-shadow: 0 0 10px 5px #FFD2A4;
+}
+
+.dark footer{
+    background-color: #0D0D0D;
+}

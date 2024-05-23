@@ -1,0 +1,24 @@
+@use "../utils/variables" as var;
+@use "../utils/functions" as func;
+
+%container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: var.$mobilePadding + px;
+  padding-left: var.$mobilePadding + px;
+}
+
+.container {
+  @extend %container;
+  max-width: func.container(1500, 110);
+}
+
+.container-238 {
+  @extend %container;
+  max-width: func.container(1500, 238);
+}
+
+.container-366 {
+  @extend %container;
+  max-width: func.container(1500, 366);
+}

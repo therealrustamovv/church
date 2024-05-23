@@ -1,0 +1,279 @@
+@use "../global";
+@use "../components/sermon-card";
+@use "../utils/variables" as var;
+@use "../utils/mixins" as mxn;
+@use "../utils/helpers";
+
+body {
+  background: #f5f2f0;
+}
+
+#sermon {
+  padding-top: 200px;
+}
+
+.sermon {
+  width: 100%;
+  padding: 128px 0;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 128px;
+  }
+  &__left {
+    max-width: 630px;
+    display: block;
+    // background-color: $bg-color;
+    .text p {
+      max-width: 630px;
+      padding-left: 15px;
+      margin-bottom: 30px;
+      border-left: 2px solid #ffd2a4;
+      color: #161722;
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+    }
+    img {
+      max-width: 630px;
+      height: auto;
+      margin-bottom: 32px;
+    }
+
+    h6 {
+      @extend %title-6;
+      color: #dc9853;
+      margin-bottom: 16px;
+      font-family: "Roboto Condensed", sans-serif;
+    }
+    h2 {
+      %title-2 {
+        @include mxn.title(48, 64, -0.48);
+      }
+      max-width: 630px;
+      margin-bottom: 16px;
+      color: #161722;
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 64px;
+      letter-spacing: -0.48px;
+      text-transform: uppercase;
+    }
+    p {
+      max-width: 630px;
+      opacity: 0.8;
+      margin-bottom: 30px;
+      color: #161722;
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+  &__right {
+    display: block;
+    max-width: 522px;
+    height: 530px;
+    padding: 40px 40px 0 40px;
+    background: #fff;
+    // border: 1px solid red;
+
+    h3 {
+      color: #161722;
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 32px;
+      font-style: normal;
+      margin-bottom: 32px;
+      font-weight: 700;
+      line-height: 44px;
+      letter-spacing: -0.32px;
+      text-transform: uppercase;
+    }
+    button {
+      @include mxn.btn;
+      margin-left: 0;
+      text-align: left;
+    }
+    .register {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 32px;
+
+      .shape-1 {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+      }
+      .shape-2 {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+      }
+      img {
+        width: 24px;
+        height: 24px;
+      }
+      p {
+        color: #161722;
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
+  }
+  label {
+    width: 100%;
+    color: #232536;
+    opacity: 0.6;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+  }
+  input {
+    width: 100%;
+    padding: 20px;
+    border-bottom: 2px solid rgba(34, 36, 52, 0.2);
+    margin-bottom: 32px;
+  }
+  input::placeholder {
+    color: #1d2130;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+
+.dark #sermon {
+  background-color: black;
+}
+
+.dark .sermon__left * {
+  color: white;
+}
+
+.dark #navbar.navbar-shrink {
+  box-shadow: 0 0 10px 5px #ffd2a4;
+}
+
+.dark .sermon__right * {
+  color: black;
+}
+
+.dark .sermon__right {
+  box-shadow: 0 0 10px 5px #ffd2a4;
+}
+
+@media (max-width: 1000px) {
+  .sermon__wrapper {
+    gap: 50px;
+  }
+  .register {
+    display: flex;
+    flex-direction: column;
+  }
+  .shape-2 {
+    margin-left: -50px;
+  }
+}
+
+@media (max-width: 800px) {
+  .sermon__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .sermon__left {
+    width: 100%;
+  }
+  .sermon__left img {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  #sermon {
+    padding-top: 150px;
+
+    h2 {
+      font-size: 24px;
+    }
+    h6 {
+      margin-bottom: 0px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+}
+.share {
+  padding-top: 128px;
+  &__box {
+    @extend %flex-between-center;
+    @media (max-width: 1300px) {
+      & {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+      }
+    }
+  }
+  &__card {
+    max-width: 302px;
+    padding: 48px 32px;
+    background: #fff5eb;
+    border-bottom: 16px solid transparent;
+    transition: all 500ms;
+  }
+  &__card:hover {
+    border-bottom: 16px solid #ffd0a0;
+  }
+  &__h3 {
+    font-family: Roboto Condensed;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.96px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: #dc9853;
+  }
+  &__title {
+    max-width: 218px;
+    color: var.$black-color;
+    font-family: Roboto Condensed;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.24px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  &__text {
+    color: var.$black-color;
+    font-family: Roboto Condensed;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 48px;
+  }
+  &__h4 {
+    color: var.$black-color;
+    font-family: Roboto Condensed;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+}

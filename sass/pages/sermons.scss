@@ -1,0 +1,88 @@
+@use "../global";
+@use "../components/upcoming-sermon";
+@use "../components/sermon-card";
+
+
+#home {
+    background-image: url(../../asset/images/U_b-eSviHvs.png);
+    background-size: cover;
+}
+
+
+.home-title {
+    padding: 160px 0 16px 0;
+    color: #232536;
+    font-family: Roboto Condensed;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.home-list {
+    padding-bottom: 160px;
+    color: #232536;
+    font-family: Roboto Condensed;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 64px;
+    letter-spacing: -0.48px;
+    text-transform: uppercase;
+}
+.share {
+  padding-top: 128px;
+  &__box {
+    @extend %flex-between-center;
+    @media (max-width: 1300px) {
+        &{
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+    }
+  }
+  &__card {
+    max-width: 302px;
+    padding: 48px 32px;
+    background: #fff5eb;
+    border-bottom: 16px solid transparent;
+    transition: all 500ms;
+  }
+  &__card:hover {
+    border-bottom: 16px solid #ffd0a0;
+  }
+  &__h3 {
+    font-family: Roboto Condensed;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.96px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: #dc9853;
+  }
+  &__title {
+    max-width: 218px;
+    color: var.$black-color;
+    font-family: Roboto Condensed;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.24px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  &__text {
+    color: var.$black-color;
+    font-family: Roboto Condensed;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 48px;
+  }
+  &__h4 {
+    color: var.$black-color;
+    font-family: Roboto Condensed;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+}
